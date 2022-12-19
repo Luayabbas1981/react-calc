@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/Luayabbas1981/react-calc/static/css/main.526405ae.css",
+    "main.js": "/Luayabbas1981/react-calc/static/js/main.54070eb3.js",
+    "static/media/Digital7Monoitalic-8xKz.ttf": "/Luayabbas1981/react-calc/static/media/Digital7Monoitalic-8xKz.3576385aa1d294b9c795.ttf",
+    "index.html": "/Luayabbas1981/react-calc/index.html",
+    "main.526405ae.css.map": "/Luayabbas1981/react-calc/static/css/main.526405ae.css.map",
+    "main.54070eb3.js.map": "/Luayabbas1981/react-calc/static/js/main.54070eb3.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.526405ae.css",
+    "static/js/main.54070eb3.js"
+  ]
+}
