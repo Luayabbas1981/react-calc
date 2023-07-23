@@ -68,6 +68,9 @@ button:hover {
   
 }
 @media(max-width:767px){
+  h1{
+    font-size: xx-large;
+  }
   .calculator-grid{
     padding: 1rem;
     border-radius: 1rem;
