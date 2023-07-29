@@ -25,17 +25,16 @@ const reducer = (state, { type, payload }) => {
     case Actions.add_digit:
       if (payload.digit === "0" && !state.mainDisplay)
         return {
-          state,
-          
+          state,  
         };
-    
+       
       if (state.operation) {
         return {
           ...state,
           secondary: `${state.secondary || ""}${payload.digit}`,
         };
       }
-
+     
       return {
         ...state,
         mainDisplay: `${state.mainDisplay || ""}${payload.digit}`,
@@ -103,7 +102,7 @@ function lastResult({ mainDisplay, secondary, operation }) {
 
     default:
   }
-
+  
   return result.toString();
 }
 

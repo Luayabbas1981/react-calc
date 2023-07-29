@@ -15,7 +15,7 @@
   -webkit-background-clip: text;
   color: transparent;
   background: rgb(0, 199, 236);
-  background: linear-gradient(196deg, rgb(118, 158, 187) 0%, rgb(159, 234, 162) 45%, rgb(145, 216, 232) 91%);
+  background: linear-gradient(196deg, rgb(77 174 244) 23%, #3f51b5 45%, rgb(67 193 221) 91%);
   background-size: 250%;
   animation: move 8s alternate infinite linear;
 }
@@ -30,7 +30,7 @@
 
 h1 {
   font-family: "calculator";
-  color: #2f5d74;
+  color: gold;
   font-size: 2.7vw;
   margin-top: -1.5rem;
 }
