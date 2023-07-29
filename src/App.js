@@ -6,8 +6,8 @@ import Operations from "./components/Operations";
 import Clear from "./components/Clear";
 import Delete from "./components/Delete";
 
-let result =""
-export const Actions = {  
+let result = "";
+export const Actions = {
   add_digit: "add-digit",
   choose_Operation: "choose_Operation",
   clear: "clear",
@@ -18,23 +18,28 @@ export const Actions = {
 const reducer = (state, { type, payload }) => {
   switch (type) {
     default:
-      return{
+      return {
         state,
-      } 
+      };
 
     case Actions.add_digit:
       if (payload.digit === "0" && !state.mainDisplay)
         return {
-          state,  
+          state,
         };
-       
+
       if (state.operation) {
         return {
           ...state,
           secondary: `${state.secondary || ""}${payload.digit}`,
         };
       }
-     
+      if (payload.digit !== "0" && state.mainDisplay === "0")
+        return {
+          state,
+          mainDisplay: payload.digit,
+        };
+
       return {
         ...state,
         mainDisplay: `${state.mainDisplay || ""}${payload.digit}`,
@@ -84,7 +89,7 @@ const reducer = (state, { type, payload }) => {
 function lastResult({ mainDisplay, secondary, operation }) {
   const main = parseInt(mainDisplay);
   const second = parseInt(secondary);
-   result = "";
+  result = "";
 
   switch (operation) {
     case "+":
@@ -102,14 +107,14 @@ function lastResult({ mainDisplay, secondary, operation }) {
 
     default:
   }
-  
+
   return result.toString();
 }
 
 function App() {
   const [{ mainDisplay, secondary, operation }, dispatch] = useReducer(
     reducer,
-    {}
+    { mainDisplay: "0" }
   );
   return (
     <>
