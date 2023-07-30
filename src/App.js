@@ -102,7 +102,7 @@ const reducer = (state, { type, payload }) => {
       };
 
     case Actions.delete:
-      if (!state.mainDisplay || state.mainDisplay==="0")
+      if (!state.mainDisplay || state.mainDisplay==="0" || state.mainDisplay.length === 1)
         return {
           state,
           mainDisplay: "0",
