@@ -33,11 +33,22 @@ const reducer = (state, { type, payload }) => {
           mainDisplay: payload.digit,
         };
       }
+     
       if (payload.digit === "0" && !state.mainDisplay)
         return {
           state,
+          mainDisplay: "0",
         };
-
+        if (payload.digit === "0" && state.mainDisplay === "0")
+        return {
+          state,
+          mainDisplay:"0"
+        };
+        if (payload.digit === "." && state.mainDisplay === "0")
+        return {
+          state,
+          mainDisplay: `${state.mainDisplay="0"}${payload.digit}`,
+        };
       if (state.operation) {
         return {
           ...state,
