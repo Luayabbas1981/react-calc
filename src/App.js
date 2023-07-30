@@ -15,6 +15,7 @@ export const Actions = {
   result: "result",
 };
 
+
 const reducer = (state, { type, payload }) => {
   switch (type) {
     default:
@@ -23,6 +24,7 @@ const reducer = (state, { type, payload }) => {
       };
 
     case Actions.add_digit:
+     
       if (payload.digit === "0" && !state.mainDisplay)
         return {
           state,
@@ -46,8 +48,12 @@ const reducer = (state, { type, payload }) => {
       };
 
     case Actions.choose_Operation:
-      if (!state.mainDisplay) {
-        return state;
+      if (!state.mainDisplay || state.mainDisplay === "0") {
+        return {
+          state,
+          mainDisplay:"0",
+          operation:""
+        }
       }
       return {
         ...state,
@@ -57,6 +63,7 @@ const reducer = (state, { type, payload }) => {
     case Actions.clear:
       return {
         state,
+        mainDisplay:"0"
       };
 
     case Actions.delete:
@@ -86,7 +93,7 @@ const reducer = (state, { type, payload }) => {
   }
 };
 
-function lastResult({ mainDisplay, secondary, operation }) {
+function lastResult({state, mainDisplay, secondary, operation }) {
   const main = parseInt(mainDisplay);
   const second = parseInt(secondary);
   result = "";
@@ -107,14 +114,14 @@ function lastResult({ mainDisplay, secondary, operation }) {
 
     default:
   }
-
+  
   return result.toString();
 }
 
 function App() {
   const [{ mainDisplay, secondary, operation }, dispatch] = useReducer(
     reducer,
-    { mainDisplay: "0" }
+    {mainDisplay: "0"}
   );
   return (
     <>
