@@ -56,6 +56,12 @@ const reducer = (state, { type, payload }) => {
       };
 
     case Actions.choose_Operation:
+      if(newCalc){
+        newCalc= false
+        return{
+          ...state,
+        }
+      }
       if (!state.mainDisplay || state.mainDisplay === "0") {
         return {
           state,
