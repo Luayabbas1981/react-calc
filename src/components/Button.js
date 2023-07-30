@@ -2,7 +2,6 @@ import React from 'react'
 import { Actions } from '../App'
 
 
-
 function Button({dispatch,digit}) {
   
   return (

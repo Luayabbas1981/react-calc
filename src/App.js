@@ -17,6 +17,7 @@ export const Actions = {
 
 
 const reducer = (state, { type, payload }) => {
+  console.log(state.mainDisplay)
   switch (type) {
     default:
       return {
@@ -24,7 +25,7 @@ const reducer = (state, { type, payload }) => {
       };
 
     case Actions.add_digit:
-     
+      console.log(state.newCalc)
       if (payload.digit === "0" && !state.mainDisplay)
         return {
           state,
@@ -45,6 +46,7 @@ const reducer = (state, { type, payload }) => {
       return {
         ...state,
         mainDisplay: `${state.mainDisplay || ""}${payload.digit}`,
+        
       };
 
     case Actions.choose_Operation:
@@ -94,8 +96,8 @@ const reducer = (state, { type, payload }) => {
 };
 
 function lastResult({state, mainDisplay, secondary, operation }) {
-  const main = parseInt(mainDisplay);
-  const second = parseInt(secondary);
+  const main = parseFloat(mainDisplay);
+  const second = parseFloat(secondary);
   result = "";
 
   switch (operation) {
@@ -114,14 +116,20 @@ function lastResult({state, mainDisplay, secondary, operation }) {
 
     default:
   }
+    
+    state.newCalc = true
+    if (result % 1 === 0){
+      return result.toString()
+    }else{
+      return result.toFixed(2).toString()
+    }
   
-  return result.toString();
 }
 
 function App() {
-  const [{ mainDisplay, secondary, operation }, dispatch] = useReducer(
+  const [{ mainDisplay, secondary, operation ,newCalc}, dispatch] = useReducer(
     reducer,
-    {mainDisplay: "0"}
+    {mainDisplay: "0",newCalc:false}
   );
   return (
     <>
@@ -158,8 +166,8 @@ function App() {
         <Operations operation="-" dispatch={dispatch} />
 
         <Button digit="0" dispatch={dispatch} />
-
-        <button
+         <Button digit="." dispatch={dispatch}/>
+        <button 
           onClick={() => {
             dispatch({ type: Actions.result });
           }}
