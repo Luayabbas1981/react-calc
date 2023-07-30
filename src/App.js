@@ -93,9 +93,10 @@ const reducer = (state, { type, payload }) => {
       };
 
     case Actions.delete:
-      if (!state.mainDisplay)
+      if (!state.mainDisplay || state.mainDisplay==="0")
         return {
           state,
+          mainDisplay: "0",
         };
       if (state.secondary && state.operation)
         return {
