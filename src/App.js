@@ -7,6 +7,7 @@ import Clear from "./components/Clear";
 import Delete from "./components/Delete";
 
 let result = "";
+let newCalc = false;
 export const Actions = {
   add_digit: "add-digit",
   choose_Operation: "choose_Operation",
@@ -15,9 +16,7 @@ export const Actions = {
   result: "result",
 };
 
-
 const reducer = (state, { type, payload }) => {
-  console.log(state.mainDisplay)
   switch (type) {
     default:
       return {
@@ -25,7 +24,15 @@ const reducer = (state, { type, payload }) => {
       };
 
     case Actions.add_digit:
-      console.log(state.newCalc)
+      if (newCalc) {
+        state.mainDisplay = "";
+        newCalc = false;
+
+        return {
+          state,
+          mainDisplay: payload.digit,
+        };
+      }
       if (payload.digit === "0" && !state.mainDisplay)
         return {
           state,
@@ -46,16 +53,15 @@ const reducer = (state, { type, payload }) => {
       return {
         ...state,
         mainDisplay: `${state.mainDisplay || ""}${payload.digit}`,
-        
       };
 
     case Actions.choose_Operation:
       if (!state.mainDisplay || state.mainDisplay === "0") {
         return {
           state,
-          mainDisplay:"0",
-          operation:""
-        }
+          mainDisplay: "0",
+          operation: "",
+        };
       }
       return {
         ...state,
@@ -65,7 +71,7 @@ const reducer = (state, { type, payload }) => {
     case Actions.clear:
       return {
         state,
-        mainDisplay:"0"
+        mainDisplay: "0",
       };
 
     case Actions.delete:
@@ -95,7 +101,7 @@ const reducer = (state, { type, payload }) => {
   }
 };
 
-function lastResult({state, mainDisplay, secondary, operation }) {
+function lastResult({ mainDisplay, secondary, operation }) {
   const main = parseFloat(mainDisplay);
   const second = parseFloat(secondary);
   result = "";
@@ -116,20 +122,19 @@ function lastResult({state, mainDisplay, secondary, operation }) {
 
     default:
   }
-    
-    state.newCalc = true
-    if (result % 1 === 0){
-      return result.toString()
-    }else{
-      return result.toFixed(2).toString()
-    }
-  
+
+  newCalc = true;
+  if (result % 1 === 0) {
+    return result.toString();
+  } else {
+    return result.toFixed(2).toString();
+  }
 }
 
 function App() {
-  const [{ mainDisplay, secondary, operation ,newCalc}, dispatch] = useReducer(
+  const [{ mainDisplay, secondary, operation }, dispatch] = useReducer(
     reducer,
-    {mainDisplay: "0",newCalc:false}
+    { mainDisplay: "0" }
   );
   return (
     <>
@@ -166,8 +171,8 @@ function App() {
         <Operations operation="-" dispatch={dispatch} />
 
         <Button digit="0" dispatch={dispatch} />
-         <Button digit="." dispatch={dispatch}/>
-        <button 
+        <Button digit="." dispatch={dispatch} />
+        <button
           onClick={() => {
             dispatch({ type: Actions.result });
           }}
