@@ -60,6 +60,7 @@ const reducer = (state, { type, payload }) => {
         newCalc= false
         return{
           ...state,
+          operation:payload.operation
         }
       }
       if (!state.mainDisplay || state.mainDisplay === "0") {
