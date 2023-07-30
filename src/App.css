@@ -65,9 +65,10 @@ button:hover {
   }
   .calculator-grid {
     padding: 1rem;
+    margin-top: -1rem;
     grid-template-columns: repeat(4, 14vw);
     grid-template-rows: minmax(18vh, auto) repeat(5, 7vh);
-    scale: 0.8;
+    scale: 0.9;
   }
   .calculator-grid button {
     font-size: large;
