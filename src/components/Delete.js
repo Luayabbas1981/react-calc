@@ -1,11 +1,11 @@
 import React from 'react'
 import { Actions } from '../App'
 
-function Delete({dispatch}) {
+function Delete({dispatch,bcColor,color}) {
   return (
     <button onClick={()=>{
         dispatch({type:Actions.delete})
-      }}>Del</button>
+      }} style={{backgroundColor:bcColor, color:color}}>Del</button>
   )
 }
 

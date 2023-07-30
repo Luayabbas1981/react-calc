@@ -2,13 +2,13 @@ import React from 'react'
 import { Actions } from '../App'
 
 
-function Button({dispatch,digit}) {
+function Button({dispatch,digit,color,bcColor}) {
   
   return (
     <button  onClick={()=>{
         dispatch({type:Actions.add_digit,payload:{digit}})
        
-      }} >{digit}</button>
+      }} style={{backgroundColor:bcColor, color:color}}>{digit}</button>
   )
 }
 
