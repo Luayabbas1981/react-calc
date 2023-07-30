@@ -24,6 +24,15 @@ const reducer = (state, { type, payload }) => {
       };
 
     case Actions.add_digit:
+      if (newCalc && payload.digit === ".") {
+        state.mainDisplay = "";
+        newCalc = false;
+
+        return {
+          state,
+          mainDisplay: `${state.mainDisplay="0"}${payload.digit}`,
+        };
+      }
       if (newCalc) {
         state.mainDisplay = "";
         newCalc = false;
@@ -32,8 +41,8 @@ const reducer = (state, { type, payload }) => {
           state,
           mainDisplay: payload.digit,
         };
-      }
-     
+      } 
+    
       if (payload.digit === "0" && !state.mainDisplay)
         return {
           state,
