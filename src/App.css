@@ -7,6 +7,7 @@
   padding: 0.7rem;
   border-radius: 2rem;
   box-shadow: 2px 2px 10px black;
+
 }
 
 .span-two {
@@ -66,6 +67,7 @@ button:hover {
     padding: 1rem;
     grid-template-columns: repeat(4, 14vw);
     grid-template-rows: minmax(18vh, auto) repeat(5, 7vh);
+    scale: 0.8;
   }
   .calculator-grid button {
     font-size: large;
