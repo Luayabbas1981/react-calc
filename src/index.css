@@ -15,7 +15,7 @@
   -webkit-background-clip: text;
   color: transparent;
   background: rgb(0, 199, 236);
-  background: linear-gradient(196deg, rgb(77 174 244) 23%, #3f51b5 45%, rgb(67 193 221) 91%);
+  background: linear-gradient(196deg, rgb(105 187 246) 23%, #5e73e2 45%, rgb(100 218 244) 91%);
   background-size: 250%;
   animation: move 8s alternate infinite linear;
 }
