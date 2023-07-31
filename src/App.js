@@ -287,8 +287,8 @@ function App() {
           bcColor={bcColor}
         />
 
-        <Button digit="0" dispatch={dispatch} color={color} bcColor={bcColor} />
         <Button digit="." dispatch={dispatch} color={color} bcColor={bcColor} />
+        <Button digit="0" dispatch={dispatch} color={color} bcColor={bcColor} />
         <button
           onClick={() => {
             dispatch({ type: Actions.result });
