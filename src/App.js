@@ -8,7 +8,7 @@ import Delete from "./components/Delete";
 
 let result = "";
 let newCalc = false;
-let styleIndex= 2
+let styleMode= 0
 export const Actions = {
   add_digit: "add-digit",
   choose_Operation: "choose_Operation",
@@ -175,30 +175,24 @@ function App() {
   
   
   function getStyle() {
-   let styleMode
-   do{
-    styleMode = Math.floor(Math.random() * 3)+1
+  
+    if (styleMode < 3) {
+      styleMode++;
+    } else {
+      styleMode = 1;
+    }
     console.log(styleMode)
-   } while(styleMode === styleIndex)
-   styleIndex = styleMode
     switch (styleMode) {
       case 1:
-        setBodyColor("#313132");
-        setBcColor("#54555e");
-        setColor("#01d0ff");
-        setColorTwo("#cddc39");
-        setColorThree("red");
-        setColorFour("#ff5e00");
+        setBodyColor("#245a74");
+        setBcColor("#445a65");
+        setColor("#cddc39");
+        setColorTwo("#ff9800");
+        setColorThree("#00bcd4");
+        setColorFour("#00bcd4");
+        
         break;
       case 2:
-        setBodyColor("#3f51b5");
-        setBcColor("#1b2b86");
-        setColor("#ff9800");
-        setColorTwo("#01d0ff");
-        setColorThree("#cbe103");
-        setColorFour("#cddc39");
-        break;
-      case 3:
         setBodyColor("#f44336");
         setBcColor("#cdd57b");
         setColor("#673ab7");
@@ -206,12 +200,21 @@ function App() {
         setColorThree("#00bcd4");
         setColorFour("#ff5722");
         break;
+      case 3:
+        setBodyColor("#3f51b5");
+        setBcColor("#1b2b86");
+        setColor("#ff9800");
+        setColorTwo("#01d0ff");
+        setColorThree("#cbe103");
+        setColorFour("#e8ff00");
+        break;
       default:
         setBodyColor("#3f51b5");
         setBcColor("#1b2b86");
         setColor("#ff9800");
         setColorTwo("#01d0ff");
         setColorThree("#cbe103");
+        setColorFour("#e8ff00");
     }
   }
 
@@ -240,7 +243,7 @@ function App() {
             backgroundColor: bcColor,
           }}
         >
-          C
+          ST
         </button>
         <Delete dispatch={dispatch} color={color} bcColor={bcColor} />
 
