@@ -127,6 +127,12 @@ const reducer = (state, { type, payload }) => {
         mainDisplay: state.mainDisplay.slice(0, -1),
       };
     case Actions.result:
+      if(!state.secondary ){
+        return{
+          state,
+          mainDisplay: state.mainDisplay
+        }
+      }
       return {
         state,
         mainDisplay: lastResult(state),
