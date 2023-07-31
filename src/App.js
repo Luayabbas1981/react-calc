@@ -193,11 +193,11 @@ function App() {
         
         break;
       case 2:
-        setBodyColor("#f44336");
-        setBcColor("#cdd57b");
-        setColor("#673ab7");
-        setColorTwo("#ffeb3b");
-        setColorThree("#00bcd4");
+        setBodyColor("#d03f35");
+        setBcColor("#f1fb86");
+        setColor("#5f12e8");
+        setColorTwo("#00fbe8");
+        setColorThree("#ffeb3b");
         setColorFour("#ff5722");
         break;
       case 3:
