@@ -203,9 +203,9 @@ function App() {
         
         break;
       case 2:
-        setBodyColor("#ff5800");
-        setBcColor("#f1fb86");
-        setColor("#5f12e8");
+        setBodyColor("#f58950");
+        setBcColor("#f1f9a0");
+        setColor("#8c4ff8");
         setColorTwo("#01fa0b");
         setColorThree("#ffeb3b");
         setColorFour("#ff5722");
