@@ -156,7 +156,7 @@ function lastResult({ mainDisplay, secondary, operation }) {
     case "×":
       result = main * second;
       break;
-    case "-":
+    case "−":
       result = main - second;
       break;
     case "÷":
@@ -291,7 +291,7 @@ function App() {
         <Button digit="3" dispatch={dispatch} color={color} bcColor={bcColor} />
 
         <Operations
-          operation="-"
+          operation="−"
           dispatch={dispatch}
           color={color}
           bcColor={bcColor}
