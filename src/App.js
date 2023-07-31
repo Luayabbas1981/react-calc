@@ -254,12 +254,12 @@ function App() {
           bcColor={bcColor}
         />
 
-        <Button digit="1" dispatch={dispatch} color={color} bcColor={bcColor} />
-        <Button digit="2" dispatch={dispatch} color={color} bcColor={bcColor} />
-        <Button digit="3" dispatch={dispatch} color={color} bcColor={bcColor} />
+        <Button digit="7" dispatch={dispatch} color={color} bcColor={bcColor} />
+        <Button digit="8" dispatch={dispatch} color={color} bcColor={bcColor} />
+        <Button digit="9" dispatch={dispatch} color={color} bcColor={bcColor} />
 
         <Operations
-          operation="*"
+          operation="x"
           dispatch={dispatch}
           color={color}
           bcColor={bcColor}
@@ -276,9 +276,9 @@ function App() {
           bcColor={bcColor}
         />
 
-        <Button digit="7" dispatch={dispatch} color={color} bcColor={bcColor} />
-        <Button digit="8" dispatch={dispatch} color={color} bcColor={bcColor} />
-        <Button digit="9" dispatch={dispatch} color={color} bcColor={bcColor} />
+        <Button digit="1" dispatch={dispatch} color={color} bcColor={bcColor} />
+        <Button digit="2" dispatch={dispatch} color={color} bcColor={bcColor} />
+        <Button digit="3" dispatch={dispatch} color={color} bcColor={bcColor} />
 
         <Operations
           operation="-"
