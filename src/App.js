@@ -84,7 +84,7 @@ const reducer = (state, { type, payload }) => {
           operation: payload.operation,
         };
       }
-      if (!state.mainDisplay || state.mainDisplay === "0") {
+      if (!state.mainDisplay || state.mainDisplay === "0" || state.mainDisplay === "0.") {
         return {
           state,
           mainDisplay: "0",
