@@ -143,7 +143,7 @@ function lastResult({ mainDisplay, secondary, operation }) {
     case "+":
       result = main + second;
       break;
-    case "*":
+    case "x":
       result = main * second;
       break;
     case "-":
