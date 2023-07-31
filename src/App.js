@@ -153,13 +153,13 @@ function lastResult({ mainDisplay, secondary, operation }) {
     case "+":
       result = main + second;
       break;
-    case "x":
+    case "×":
       result = main * second;
       break;
     case "-":
       result = main - second;
       break;
-    case "/":
+    case "÷":
       result = main / second;
       break;
 
@@ -258,7 +258,7 @@ function App() {
         <Delete dispatch={dispatch} color={color} bcColor={bcColor} />
 
         <Operations
-          operation="/"
+          operation="÷"
           dispatch={dispatch}
           color={color}
           bcColor={bcColor}
@@ -269,7 +269,7 @@ function App() {
         <Button digit="9" dispatch={dispatch} color={color} bcColor={bcColor} />
 
         <Operations
-          operation="x"
+          operation="×"
           dispatch={dispatch}
           color={color}
           bcColor={bcColor}
