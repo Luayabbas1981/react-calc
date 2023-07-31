@@ -203,10 +203,10 @@ function App() {
         
         break;
       case 2:
-        setBodyColor("#d03f35");
+        setBodyColor("#ff5800");
         setBcColor("#f1fb86");
         setColor("#5f12e8");
-        setColorTwo("#00fbe8");
+        setColorTwo("#01fa0b");
         setColorThree("#ffeb3b");
         setColorFour("#ff5722");
         break;
