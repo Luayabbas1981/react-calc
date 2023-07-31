@@ -18,7 +18,7 @@ export const Actions = {
 };
 
 const reducer = (state, { type, payload }) => {
-  console.log(state.operation)
+ 
   switch (type) {
     default:
       return {
@@ -78,6 +78,7 @@ const reducer = (state, { type, payload }) => {
       };
 
     case Actions.choose_Operation:
+     
       if (newCalc) {
         newCalc = false;
         return {
@@ -128,10 +129,12 @@ const reducer = (state, { type, payload }) => {
         mainDisplay: state.mainDisplay.slice(0, -1),
       };
     case Actions.result:
-      if(!state.secondary || state.secondary.length === undefined){
+      if(!state.secondary){
         return{
           state,
-          mainDisplay: state.mainDisplay
+          mainDisplay: state.mainDisplay,
+          secondary:state.symbol,
+         
         }
       }
       return {
@@ -225,7 +228,7 @@ function App() {
     }
   }
 
-  const [{ mainDisplay, secondary, operation }, dispatch] = useReducer(
+  const [{ mainDisplay, secondary, operation ,symbol}, dispatch] = useReducer(
     reducer,
     { mainDisplay: "0" }
   );
