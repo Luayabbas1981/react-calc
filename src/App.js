@@ -206,7 +206,7 @@ function App() {
         setBodyColor("#f58950");
         setBcColor("#f1f9a0");
         setColor("#8c4ff8");
-        setColorTwo("#01fa0b");
+        setColorTwo("#27fc2f");
         setColorThree("#ffeb3b");
         setColorFour("#ff5722");
         break;
