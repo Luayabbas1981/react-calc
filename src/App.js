@@ -18,6 +18,7 @@ export const Actions = {
 };
 
 const reducer = (state, { type, payload }) => {
+  console.log(state.operation)
   switch (type) {
     default:
       return {
@@ -127,7 +128,7 @@ const reducer = (state, { type, payload }) => {
         mainDisplay: state.mainDisplay.slice(0, -1),
       };
     case Actions.result:
-      if(!state.secondary ){
+      if(!state.secondary || state.secondary.length === undefined){
         return{
           state,
           mainDisplay: state.mainDisplay
