@@ -8,7 +8,7 @@ import Delete from "./components/Delete";
 
 let result = "";
 let newCalc = false;
-let styleMode= 0
+let styleMode = 0;
 export const Actions = {
   add_digit: "add-digit",
   choose_Operation: "choose_Operation",
@@ -18,7 +18,6 @@ export const Actions = {
 };
 
 const reducer = (state, { type, payload }) => {
- 
   switch (type) {
     default:
       return {
@@ -78,7 +77,6 @@ const reducer = (state, { type, payload }) => {
       };
 
     case Actions.choose_Operation:
-     
       if (newCalc) {
         newCalc = false;
         return {
@@ -86,7 +84,11 @@ const reducer = (state, { type, payload }) => {
           operation: payload.operation,
         };
       }
-      if (!state.mainDisplay || state.mainDisplay === "0" || state.mainDisplay === "0.") {
+      if (
+        !state.mainDisplay ||
+        state.mainDisplay === "0" ||
+        state.mainDisplay === "0."
+      ) {
         return {
           state,
           mainDisplay: "0",
@@ -129,13 +131,12 @@ const reducer = (state, { type, payload }) => {
         mainDisplay: state.mainDisplay.slice(0, -1),
       };
     case Actions.result:
-      if(!state.secondary){
-        return{
+      if (!state.secondary) {
+        return {
           state,
           mainDisplay: state.mainDisplay,
-          secondary:state.symbol,
-         
-        }
+          secondary: state.symbol,
+        };
       }
       return {
         state,
@@ -182,27 +183,32 @@ function App() {
   const [colorThree, setColorThree] = useState("");
   const [colorFour, setColorFour] = useState("#e8ff00");
 
-  
-  
   function getStyle() {
-  
-    if (styleMode < 3) {
+    if (styleMode < 4) {
       styleMode++;
     } else {
       styleMode = 1;
     }
-    console.log(styleMode)
+    console.log(styleMode);
     switch (styleMode) {
-      case 1:
+      case 2:
         setBodyColor("#245a74");
         setBcColor("#445a65");
         setColor("#cddc39");
         setColorTwo("#ff9800");
         setColorThree("#00bcd4");
         setColorFour("#00bcd4");
-        
+
         break;
-      case 2:
+      case 1:
+        setBodyColor("#000");
+        setBcColor("#3d3d3d");
+        setColor("red");
+        setColorTwo("#ffeb3b");
+        setColorThree("#8bc34a");
+        setColorFour("#8bc34a");
+        break;
+      case 3:
         setBodyColor("#f58950");
         setBcColor("#f1f9a0");
         setColor("#8c4ff8");
@@ -210,7 +216,7 @@ function App() {
         setColorThree("#ffeb3b");
         setColorFour("#ff5722");
         break;
-      case 3:
+      case 4:
         setBodyColor("#3f51b5");
         setBcColor("#1b2b86");
         setColor("#ff9800");
@@ -228,7 +234,7 @@ function App() {
     }
   }
 
-  const [{ mainDisplay, secondary, operation ,symbol}, dispatch] = useReducer(
+  const [{ mainDisplay, secondary, operation, symbol }, dispatch] = useReducer(
     reducer,
     { mainDisplay: "0" }
   );
