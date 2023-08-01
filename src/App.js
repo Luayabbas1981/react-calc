@@ -191,6 +191,14 @@ function App() {
     }
     console.log(styleMode);
     switch (styleMode) {
+      case 1:
+        setBodyColor("#000");
+        setBcColor("#202020");
+        setColor("#f75e53");
+        setColorTwo("#ffeb3b");
+        setColorThree("#8bc34a");
+        setColorFour("#8bc34a");
+        break;
       case 2:
         setBodyColor("#245a74");
         setBcColor("#445a65");
@@ -199,14 +207,6 @@ function App() {
         setColorThree("#00bcd4");
         setColorFour("#00bcd4");
 
-        break;
-      case 1:
-        setBodyColor("#000");
-        setBcColor("#3d3d3d");
-        setColor("#f44336");
-        setColorTwo("#ffeb3b");
-        setColorThree("#8bc34a");
-        setColorFour("#8bc34a");
         break;
       case 3:
         setBodyColor("#f58950");

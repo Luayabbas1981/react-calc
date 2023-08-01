@@ -26,6 +26,7 @@
   background-color: rgba(0, 0, 0, 0.8);
   border-top-left-radius: 2rem;
   border-top-right-radius: 2rem;
+  border: 1px solid gray;
   font-family: "calculator", "Righteous", cursive;
 }
 .main {
